@@ -1,0 +1,488 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Modifications globales */
+
+:root{
+    --blue: #0065fc;
+    --lightblue: #deebff;
+    --gray: #f2f2f2;
+    --black: #000000;
+}
+
+#main{
+    padding: 0px 40px;
+    flex-wrap: wrap;
+    margin: auto;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+
+body{
+    margin: 0px;
+    font-family: "Raleway", sans-serif;
+}
+
+/* Etape 1.A - Barre de navigation */
+
+.logo-centre{ 
+    display: block;
+    margin-right: auto;
+    padding-left: 20px;
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    padding: 35px;
+}
+
+nav a:hover{
+    color: var(--blue);
+    border-top: 2px solid #0065FC;
+}
+
+nav{
+    /*border: 1px solid red;*/
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+/* Etape 1.B - Barre de navigation réduite */
+
+.barre-de-navigation-reduite{
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .barre-de-navigation-reduite{
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .barre-de-navigation-reduite a{
+        flex-basis: 50%;
+        border-bottom: 2px solid #F2F2F2;
+    }
+
+    nav a:hover{
+       border-bottom-color: var(--blue); 
+       border-top: none;
+    }
+
+    .logo-centre{
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        padding-left: 100px;
+    }
+}
+
+/* Etape 2 - Titre principal & sous titre */
+
+.titre-principal{
+    margin-bottom: 10px;
+}
+
+.sous-titre{
+    margin-top: 10px;
+}
+
+/* Etape 3 - Barre de recherche */
+
+.barre-de-recherche{
+    display: flex;
+    margin-top: 25px;
+    /*flex-wrap: wrap;*/
+}
+
+.barre-de-recherche i{
+    padding: 15px 20px;
+    background-color: var(--gray);
+    border-radius: 15px 0px 0px 15px;
+}
+
+.barre-de-recherche input{
+    padding-left: 15px;
+    padding-right: 50px;
+    border: 1px solid #f2f2f2;
+    overflow: auto;
+}
+
+.barre-de-recherche input::placeholder{
+    font-weight: bold;
+    color: var(--black);  
+}
+
+.barre-de-recherche button{
+    padding: 0px 25px;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 0px 15px 15px 0px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: transform 200ms;
+}
+
+.barre-de-recherche button:hover{
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+/* Etape 3.B - Barre de recherche loupe */
+
+.fa-solid.fa-magnifying-glass{
+    display: none;
+}
+
+@media (max-width: 768px){
+    .texte-de-recherche{
+        display: none;
+    }   
+
+    .fa-solid.fa-magnifying-glass{
+        display: inline;
+        background-color: inherit   
+    }
+}
+
+/* Etape 4 - Barre de filtres */
+
+.liste-de-filtres{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.filtres{
+    border: 2px solid #f2f2f2;
+    border-radius: 25px;
+    transition: 200ms;
+}
+
+.filtres span{
+    font-weight: bold;
+    padding: 8px;
+}
+
+.filtres .fa-solid{
+    color: var(--blue);
+    background-color: var(--lightblue);
+    padding: 15px;
+    border-radius: 50%;
+    margin: -2px;
+}
+
+.filtres:hover{
+    background-color: var(--gray);
+    transform: scale(1.02);
+    
+}
+
+/* Etape 5 - Message d'information */
+
+.message-information{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.message-information i{
+    color: var(--blue);
+    width: 25px;
+    height: 25px;
+    border: 2px solid #f2f2f2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Etape 6 - Carte liste hebergements Marseille & Populaire */
+
+@media (max-width: 1525px) {
+    .liste-logements{
+        flex-direction: column-reverse;
+    }
+    
+}
+
+.liste-logements{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.liste-logements > div{
+ /*border: 1px solid green;*/
+ background-color: var(--gray);
+ padding: 20px;
+ border-radius: 25px;
+}
+
+.liste-logements .logements-marseille{
+    flex-basis: 66%;
+}
+
+.liste-logements .logements-populaire{
+    flex-basis: 33%;
+}
+
+.logements-marseille a{
+    text-decoration: none;
+    color: var(--black);
+}
+
+.afficher-plus-logements a{
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+}
+
+/* Etape 6.A - Carte liste hebergements Marseille */
+
+.logements-marseille-liste{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+
+.logements-marseille-liste div{
+    margin: 15px;
+}
+
+.blue{
+    color: var(--blue);
+}
+
+.gray{
+    color: var(--gray);
+}
+
+/* Etape 6.A - Création carte de présentation hebergements Marseille */
+
+.carte-de-logement{
+    background-color: white;
+    border-radius: 25px;
+    padding: 8px;
+    box-shadow: 0px 0px 8px #222222;
+    /*flex-grow: 1;
+    flex-basis: 27%;*/
+    min-width: 315px;
+    max-width: 315px;
+}
+
+.carte-de-logement img{
+    border-radius: 25px 25px 0px 0px;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carte-de-logement p, h3{
+    margin: 8px;
+}
+
+.logements-marseille-liste div:hover{
+    transform: scale(1.02);
+    transition: 200ms;
+}
+
+/* Etape 6.B - Carte liste hebergements Populaires */
+
+.logements-populaire-liste{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.logements-populaire-liste div{
+    /*border: 1px solid blue;*/
+    margin: 20px;
+}
+
+/* Etape 6.B - Création carte de présentation hebergements populaires */
+
+.logements-populaire .titre-plus-populaires{
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.carte-de-logement-populaire{
+    display: flex;
+    background-color: white;
+    border-radius: 25px;
+    padding: 8px;
+    box-shadow: 0px 0px 8px #222222;
+    flex-grow: 1;
+    min-width: 340px
+}
+
+.carte-de-logement-populaire img{
+    border-radius: 25px 0px 0px 25px;
+    height: 180px;
+    min-width: 40%;
+    max-width: 40%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carte-de-logement-populaire p, h3{
+    margin: 8px;
+}
+
+.logements-populaire-liste div{
+    margin: 20px;
+}
+
+.logements-populaire-liste div:hover{
+    transform: scale(1.02);
+    transition: 200ms;
+}
+
+.logements-populaire a{
+    text-decoration: none;
+    color: var(--black);
+}
+
+/* Etape 7 - Création carte d'activités Marseille */
+
+.liste-activités{
+    margin-top: 25px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 380px));
+    grid-template-rows: repeat(5, 1fr);
+    gap: 30px;
+    justify-content: center;
+}
+
+.liste-activités > * {
+    background-size: cover;
+    display: flex;
+    background-position: center;
+    border-radius: 25px;
+    box-shadow: 0px 0px 8px #222222;
+}
+
+.liste-activités > div:hover{
+        transform: scale(1.02);
+        transition: 200ms;   
+}
+
+.gros1 {
+    grid-row: 1 / -1;
+    background-image:url("../images/activites/3_medium/reno-laithienne-QUgJhdY5Fyk-unsplash.jpg");
+    height: 600px; 
+}
+
+.gros2 {
+    grid-column: 3/4;
+    grid-row: 1/-1;
+    background-image: url("../images/activites/3_medium/kilyan-sockalingum-NR8-cBCN3aI-unsplash.jpg");
+}
+
+.gros{
+   height: 600px;
+}
+
+.moyen1 {
+    grid-row: 1/span 3;
+    background-image: url("../images/activites/3_medium/paul-hermann-QFTrLdQIRhI-unsplash.jpg");
+}
+
+.moyen2 {
+    grid-column: 4/-1;
+    grid-row: 3/-1;
+    background-image: url("../images/activites/3_medium/lena-paulin-wH2-EJoDcV0-unsplash.jpg");
+}
+
+.petit1{
+   grid-column: 2/3; 
+   grid-row: 4/-1;
+   background-image: url("../images/activites/3_medium/kevin-hikari-rV_Qd1l-VXg-unsplash.jpg");
+}
+
+.petit2{
+    grid-column: 4/-1;
+    grid-row: 1/3;
+    background-image: url("../images/activites/3_medium/florian-wehde-xW9e8gdotxI-unsplash.jpg");
+}
+
+@media (max-width: 1525px){
+    .liste-activités{
+        grid-template-rows: repeat(auto-fit, 300px);
+    }
+
+    .liste-activités > *{
+        grid-column: span 1;
+        grid-row: span 1;  
+        height: 300px;
+    }
+}
+
+.liste-activités h3{
+    background-color: white;
+    margin-top: auto;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 0px 0px 25px 25px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/* Etape 8 - Footer */
+
+@media (max-width: 768px) {
+    .pied-de-page{
+        height: 550px;
+        flex-direction: column;
+    }
+
+    .pied-de-page div{
+        margin-left: 30px;
+        margin-right: auto;
+    }
+}
+
+footer{
+    display: flex;
+    flex-basis: 100%;
+    height: 300px;
+    background-color: var(--gray);
+    justify-content: space-around;
+}
+
+footer > div {
+    margin-top: 30px;
+    flex-basis: 25%;  
+    height: 200px;
+}
+
+footer a{
+    text-decoration: none;
+    color: var(--black);
+}
+
+
+
+
